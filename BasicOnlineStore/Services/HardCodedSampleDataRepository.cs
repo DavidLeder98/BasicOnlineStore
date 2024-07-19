@@ -6,7 +6,7 @@ namespace BasicOnlineStore.Services
     public class HardCodedSampleDataRepository : IProductDataService
     {
 
-        List<ProductModel> productsList = new List<ProductModel>();
+        static List<ProductModel> productsList = new List<ProductModel>();
 
         public List<ProductModel> GetAllProducts()
         {
