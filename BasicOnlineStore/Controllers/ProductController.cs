@@ -11,7 +11,7 @@ namespace BasicOnlineStore.Controllers
         {
             HardCodedSampleDataRepository hardCodedSampleDataRepository = new HardCodedSampleDataRepository();
 
-            return View(hardCodedSampleDataRepository.GetAllProducts);
+            return View(hardCodedSampleDataRepository.GetAllProducts());
         }
     }
 }
