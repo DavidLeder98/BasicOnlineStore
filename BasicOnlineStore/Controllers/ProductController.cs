@@ -62,5 +62,19 @@ namespace BasicOnlineStore.Controllers
             products.Delete(product);
             return View("Index", products.GetAllProducts());
         }
+
+
+
+        public IActionResult InsertForm()
+        {
+            return View();
+        }
+
+        public IActionResult ProcessCreate(ProductModel product)
+        {
+            ProductsDAO products = new ProductsDAO();
+            products.Insert(product);
+            return View("Index", products.GetAllProducts());
+        }
     }
 }
