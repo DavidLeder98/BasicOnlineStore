@@ -1,4 +1,5 @@
-﻿using BasicOnlineStore.Models;
+﻿/*
+using BasicOnlineStore.Models;
 using Bogus;
 
 namespace BasicOnlineStore.Services
@@ -57,3 +58,4 @@ namespace BasicOnlineStore.Services
         }
     }
 }
+*/
