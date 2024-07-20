@@ -15,6 +15,7 @@ namespace BasicOnlineStore.Controllers
         }
 
 
+
         public IActionResult SearchResults(string searchTerm)
         {
             ProductsDAO products = new ProductsDAO();
@@ -25,6 +26,15 @@ namespace BasicOnlineStore.Controllers
         public IActionResult SearchForm()
         {
             return View();
+        }
+
+
+
+        public IActionResult ShowDetails(int id)
+        {
+            ProductsDAO products = new ProductsDAO();
+            ProductModel foundProduct = products.GetProductById(id);
+            return View(foundProduct);
         }
     }
 }
