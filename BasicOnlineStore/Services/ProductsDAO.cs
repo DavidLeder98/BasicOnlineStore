@@ -121,7 +121,27 @@ namespace BasicOnlineStore.Services
 
         public int Delete(ProductModel product)
         {
-            throw new NotImplementedException();
+            int newIdNumber = -1;
+
+            string splStatement = "DELETE FROM dbo.Products WHERE Id = @Id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(splStatement, connection);
+                command.Parameters.AddWithValue("@Id", product.Id);
+
+                try
+                {
+                    connection.Open();
+
+                    newIdNumber = Convert.ToInt32(command.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return newIdNumber;
         }
 
 

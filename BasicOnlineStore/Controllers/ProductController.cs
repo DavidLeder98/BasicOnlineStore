@@ -52,5 +52,15 @@ namespace BasicOnlineStore.Controllers
             products.Update(product);
             return View("Index", products.GetAllProducts());
         }
+
+
+
+        public IActionResult Delete(int id)
+        {
+            ProductsDAO products = new ProductsDAO();
+            ProductModel product = products.GetProductById(id);
+            products.Delete(product);
+            return View("Index", products.GetAllProducts());
+        }
     }
 }
