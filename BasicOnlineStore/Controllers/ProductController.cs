@@ -9,9 +9,9 @@ namespace BasicOnlineStore.Controllers
     {
         public IActionResult Index()
         {
-            HardCodedSampleDataRepository hardCodedSampleDataRepository = new HardCodedSampleDataRepository();
+            ProductsDAO products = new ProductsDAO();
 
-            return View(hardCodedSampleDataRepository.GetAllProducts());
+            return View(products.GetAllProducts());
         }
     }
 }
