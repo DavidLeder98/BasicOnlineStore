@@ -2,11 +2,20 @@
 using BasicOnlineStore.Services;
 using Bogus;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
 
 namespace BasicOnlineStore.Controllers
 {
     public class ProductController : Controller
     {
+        ProductsDAO repository;
+        public ProductController()
+        {
+            repository = new ProductsDAO();
+        }
+
+
+
         public IActionResult Index()
         {
             ProductsDAO products = new ProductsDAO();
@@ -75,6 +84,26 @@ namespace BasicOnlineStore.Controllers
             ProductsDAO products = new ProductsDAO();
             products.Insert(product);
             return View("Index", products.GetAllProducts());
+        }
+
+
+
+        // - - JSON related - -
+
+        public IActionResult ShowOneProduct(int Id)
+        {
+            return View(repository.GetProductById(Id));
+        }
+
+        public IActionResult ShowOneProductJSON(int Id)
+        {
+            return Json(repository.GetProductById(Id));
+        }
+
+        public IActionResult ProcessEditReturnPartial(ProductModel product)
+        {
+            repository.Update(product);
+            return PartialView("_productCard", product);
         }
     }
 }
