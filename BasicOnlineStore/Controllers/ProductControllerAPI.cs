@@ -51,21 +51,21 @@ namespace BasicOnlineStore.Controllers
 
 
 
+        [HttpPut("ProcessEdit")]
+        public ActionResult <ProductModel> ProcessEdit(ProductModel product)
+        {
+            repository.Update(product);
+            return repository.GetProductById(product.Id);
+        }
+
+
+
         /*
         public IActionResult ShowDetails(int id)
         {
             ProductsDAO products = new ProductsDAO();
             ProductModel foundProduct = products.GetProductById(id);
             return View(foundProduct);
-        }
-
-
-
-        public IActionResult ProcessEdit(ProductModel product)
-        {
-            ProductsDAO products = new ProductsDAO();
-            products.Update(product);
-            return View("Index", products.GetAllProducts());
         }
 
 
