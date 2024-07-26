@@ -25,7 +25,7 @@ namespace BasicOnlineStore.Controllers
         }
 
 
-
+        
         [HttpGet("searchproducts/{searchTerm}")]
         public ActionResult <IEnumerable<ProductModel>> SearchProducts(string searchTerm)
         {
