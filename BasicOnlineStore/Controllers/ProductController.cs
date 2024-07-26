@@ -18,18 +18,14 @@ namespace BasicOnlineStore.Controllers
 
         public IActionResult Index()
         {
-            ProductsDAO products = new ProductsDAO();
-
-            return View(products.GetAllProducts());
+            return View(repository.GetAllProducts());
         }
 
 
 
-        public IActionResult SearchResults(string searchTerm)
+        public IActionResult SearchProducts(string searchTerm)
         {
-            ProductsDAO products = new ProductsDAO();
-            List<ProductModel> productsList = products.SearchProducts(searchTerm);
-            return View("index", productsList);
+            return View("Index", repository.SearchProducts(searchTerm));
         }
 
         public IActionResult SearchForm()
