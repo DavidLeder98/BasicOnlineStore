@@ -60,42 +60,12 @@ namespace BasicOnlineStore.Controllers
 
 
 
-        /*
-        public IActionResult ShowDetails(int id)
+        [HttpDelete("Delete/{Id}")]
+        public ActionResult <bool> Delete(int Id)
         {
-            ProductsDAO products = new ProductsDAO();
-            ProductModel foundProduct = products.GetProductById(id);
-            return View(foundProduct);
+            ProductModel deleteMe = repository.GetProductById(Id);
+            bool success = repository.Delete(deleteMe);
+            return success;
         }
-
-
-
-        public IActionResult Delete(int id)
-        {
-            ProductsDAO products = new ProductsDAO();
-            ProductModel product = products.GetProductById(id);
-            products.Delete(product);
-            return View("Index", products.GetAllProducts());
-        }
-
-
-
-        public IActionResult InsertForm()
-        {
-            return View();
-        }
-
-
-
-
-        // - - JSON related - -
-
-
-
-        public IActionResult ProcessEditReturnPartial(ProductModel product)
-        {
-            repository.Update(product);
-            return PartialView("_productCard", product);
-        }*/
     }
 }
