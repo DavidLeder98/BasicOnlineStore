@@ -42,6 +42,15 @@ namespace BasicOnlineStore.Controllers
 
 
 
+        [HttpPost("ProcessCreate")]
+        public ActionResult <int> ProcessCreate(ProductModel product)
+        {
+            int newId = repository.Insert(product);
+            return newId ;
+        }
+
+
+
         /*
         public IActionResult ShowDetails(int id)
         {
@@ -51,13 +60,6 @@ namespace BasicOnlineStore.Controllers
         }
 
 
-
-        public IActionResult Edit(int id)
-        {
-            ProductsDAO products = new ProductsDAO();
-            ProductModel foundProduct = products.GetProductById(id);
-            return View("ShowEdit", foundProduct);
-        }
 
         public IActionResult ProcessEdit(ProductModel product)
         {
@@ -83,12 +85,6 @@ namespace BasicOnlineStore.Controllers
             return View();
         }
 
-        public IActionResult ProcessCreate(ProductModel product)
-        {
-            ProductsDAO products = new ProductsDAO();
-            products.Insert(product);
-            return View("Index", products.GetAllProducts());
-        }
 
 
 
