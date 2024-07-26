@@ -31,14 +31,18 @@ namespace BasicOnlineStore.Controllers
         {
             return repository.SearchProducts(searchTerm);
         }
-        /*
-        public IActionResult SearchForm()
+
+
+
+        [HttpGet("ShowOneProduct/{Id}")]
+        public ActionResult <ProductModel> ShowOneProduct(int Id)
         {
-            return View();
+            return repository.GetProductById(Id);
         }
 
 
 
+        /*
         public IActionResult ShowDetails(int id)
         {
             ProductsDAO products = new ProductsDAO();
@@ -90,15 +94,7 @@ namespace BasicOnlineStore.Controllers
 
         // - - JSON related - -
 
-        public IActionResult ShowOneProduct(int Id)
-        {
-            return View(repository.GetProductById(Id));
-        }
 
-        public IActionResult ShowOneProductJSON(int Id)
-        {
-            return Json(repository.GetProductById(Id));
-        }
 
         public IActionResult ProcessEditReturnPartial(ProductModel product)
         {
