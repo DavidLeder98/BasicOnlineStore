@@ -19,15 +19,15 @@ namespace BasicOnlineStore.Controllers
 
 
         [HttpGet]
-        public ActionResult <IEnumerable<ProductModel>> Index()
+        public ActionResult<IEnumerable<ProductModel>> Index()
         {
             return repository.GetAllProducts();
         }
 
 
-        
+
         [HttpGet("searchproducts/{searchTerm}")]
-        public ActionResult <IEnumerable<ProductModel>> SearchProducts(string searchTerm)
+        public ActionResult<IEnumerable<ProductModel>> SearchProducts(string searchTerm)
         {
             return repository.SearchProducts(searchTerm);
         }
@@ -35,7 +35,7 @@ namespace BasicOnlineStore.Controllers
 
 
         [HttpGet("ShowOneProduct/{Id}")]
-        public ActionResult <ProductModel> ShowOneProduct(int Id)
+        public ActionResult<ProductModel> ShowOneProduct(int Id)
         {
             return repository.GetProductById(Id);
         }
@@ -43,29 +43,30 @@ namespace BasicOnlineStore.Controllers
 
 
         [HttpPost("ProcessCreate")]
-        public ActionResult <int> ProcessCreate(ProductModel product)
+        public ActionResult<int> ProcessCreate(ProductModel product)
         {
             int newId = repository.Insert(product);
-            return newId ;
+            return newId;
         }
 
 
 
         [HttpPut("ProcessEdit")]
-        public ActionResult <ProductModel> ProcessEdit(ProductModel product)
+        public ActionResult<ProductModel> ProcessEdit(ProductModel product)
         {
             repository.Update(product);
             return repository.GetProductById(product.Id);
         }
 
 
+        // - - fix later - -
 
+        /*
         [HttpDelete("Delete/{Id}")]
-        public ActionResult <bool> Delete(int Id)
+        public ActionResult <> Delete(int Id)
         {
-            ProductModel deleteMe = repository.GetProductById(Id);
-            bool success = repository.Delete(deleteMe);
-            return success;
+
         }
+        */
     }
 }
