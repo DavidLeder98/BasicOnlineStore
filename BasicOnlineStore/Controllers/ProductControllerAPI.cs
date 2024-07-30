@@ -38,7 +38,6 @@ namespace BasicOnlineStore.Controllers
         public ActionResult<ProductModelDTO> ShowOneProduct(int Id)
         {
             ProductModel p = repository.GetProductById(Id);
-
             ProductModelDTO pDTO = new ProductModelDTO(p);
 
             return pDTO;
