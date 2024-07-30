@@ -35,9 +35,13 @@ namespace BasicOnlineStore.Controllers
 
 
         [HttpGet("ShowOneProduct/{Id}")]
-        public ActionResult<ProductModel> ShowOneProduct(int Id)
+        public ActionResult<ProductModelDTO> ShowOneProduct(int Id)
         {
-            return repository.GetProductById(Id);
+            ProductModel p = repository.GetProductById(Id);
+
+            ProductModelDTO pDTO = new ProductModelDTO(p);
+
+            return pDTO;
         }
 
 
