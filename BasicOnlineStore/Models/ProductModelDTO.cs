@@ -36,7 +36,7 @@ namespace BasicOnlineStore.Models
             Price = price;
             Description = description;
 
-            PriceString = string.Format("{0:C}", price);
+            PriceString = "$" + price;
             ShortDescription = description.Length <= 25 ? description : description.Substring(0, 25);
             Tax = price * 0.08M;
         }
@@ -48,7 +48,7 @@ namespace BasicOnlineStore.Models
             Price = p.Price;
             Description = p.Description;
 
-            PriceString = string.Format("{0:C}", p.Price);
+            PriceString = "$" + p.Price;
             ShortDescription = p.Description.Length <= 25 ? p.Description : p.Description.Substring(0, 25);
             Tax = p.Price * 0.08M;
         }

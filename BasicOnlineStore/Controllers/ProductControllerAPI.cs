@@ -19,9 +19,18 @@ namespace BasicOnlineStore.Controllers
 
 
         [HttpGet]
-        public ActionResult<IEnumerable<ProductModel>> Index()
+        public ActionResult<IEnumerable<ProductModelDTO>> Index()
         {
-            return repository.GetAllProducts();
+            List<ProductModel> products = repository.GetAllProducts();
+
+            List<ProductModelDTO> productDTOs = new List<ProductModelDTO>();
+
+            foreach (var p in products)
+            {
+                productDTOs.Add( new ProductModelDTO(p) );
+            }
+
+            return productDTOs;
         }
 
 
